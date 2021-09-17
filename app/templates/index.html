@@ -11,7 +11,6 @@
     <!-- Styles block -->
     {% block styles%}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
@@ -39,7 +38,7 @@
     }
 
     .well{
-        background-color:rgb(113, 206, 206);
+        background-color:rgb(159, 219, 219);
     }
 
     a{
@@ -75,11 +74,11 @@
                 <div class="col-sm-6">
                     <div class="card ">
                         <div class="well well-lg p-3" style="text-align: center;">
-                            <h3>Interviews Pitches</h3>
+                            <h3>Interview Pitches</h3>
                             <hr>
                             <p>In this category are pitches that you would love to use whenever you are on an interview. 
                             </p>
-                            <a href="" class="btn btn-primary btn-center -center" style="font-size:22px;">
+                            <a href="./category/interview" class="btn btn-primary btn-center -center" style="font-size:22px;">
                                 Open</a>
                         </div>
                     </div>
@@ -90,7 +89,7 @@
                             <h3>Discussion Pitches</h3>
                             <hr>
                             <p> This category contains pitches that could be of use during a discussion on any kind of topics.</p>
-                            <a href="" class="btn btn-primary btn-center -center" style="font-size:22px;">
+                            <a href="./category/discussion" class="btn btn-primary btn-center -center" style="font-size:22px;">
                                 Open</a>
                         </div>
                     </div>
@@ -101,11 +100,11 @@
                 <div class="col-sm-6">
                     <div class=" card">
                         <div class="well well-lg p-3" style="text-align: center;">
-                            <h3>Promotions Pitches</h3>
+                            <h3>Promotion Pitches</h3>
                             <hr>
                             <p>This category has pitches that a seller can use when promoting their products. Especially to a new
                                 customer who hasn't use the product. </p>
-                            <a href="" class="btn btn-primary btn-center -center" style="font-size:22px;">
+                            <a href="./category/promotion" class="btn btn-primary btn-center -center" style="font-size:22px;">
                                 Open</a>
                         </div>
                     </div>
@@ -116,7 +115,7 @@
                             <h3 >Friendship Pitches</h3>
                             <hr>
                             <p>A times you find yourself in a common ground with a stranger. This category has those first pitches one can use to send out a nice first impression.</p>
-                            <a href="" class="btn btn-primary btn-center -center" style="font-size:22px;">
+                            <a href="./category/friendship" class="btn btn-primary btn-center -center" style="font-size:22px;">
                                 Open</a>
                         </div>
                     </div>
