@@ -7,21 +7,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+
+    <!-- Styles block -->
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+    {% endblock %}
+
 </head>
+
+<!-- Content block -->
+{% block content %}
 
 <div class="container">
 
-        <!-- Content block -->
-        {% block content %}
-        
-        <h1 style="text-align: center;">{{main_title}}</h1>
-        <p>In life, you only have 60 seconds to impress someone. 1 minute can make or break you. How do we make sure that you
+    <div class="introduction">
+
+        <h1 style="text-align:center; color:red; font-weight:600;font-family: 'Josefin Sans', sans-serif;">{{main_title}}</h1>
+        <hr>
+        <p style="font-family: 'Charm', cursive;font-size:24px;text-align:center">In life, you only have 60 seconds to impress
+            someone. 1 minute can make or break you. How do we make sure that you
             use
             your 1 minute to actually say something meaningful? Worry no more! <strong>{{main_title}}</strong> got you covered.
-            Welcome</p>
+            Welcome.</p>
         
-        {% endblock %}
+        <P style="font-family:'Charm', cursive;font-size:24px;">You can as well share with us what you got. Feel free inspire
+            someone out there.</P>
+        <button class="btn btn-primary" style="font-family:'Charm', cursive;font-size:22px;">Create a new pitch</button>
+
+    </div>
+
+    <div class="categories">
+
+        <h1 style="text-align:center; color:blue; font-weight:600;font-family: 'Josefin Sans', sans-serif;">Available Categories</h1>
+        <hr>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card ">
+                        <div class="well well-lg p-3" style="text-align: center;">
+                            <h3>Interviews Pitches</h3>
+                            <hr>
+                            <p>In this category are pitches that you would love to use whenever you are on an interview. 
+                            </p>
+                            <a href="" class="btn btn-primary btn-center -center">
+                                Open</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-sm-6">
+                    <div class=" card">
+                        <div class="well well-lg p-3" style="text-align: center;">
+                            <h3 >Promotions Pitches</h3>
+                            <hr>
+                            <p>This category has pitches that a seller can use when promoting their products. Especially to a new customer who hasn't use the product. </p>
+                            <a href="" class="btn btn-primary btn-center -center">
+                                Open</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class=" card">
+                        <div class="well well-lg p-3" style="text-align: center;">
+                            <h3 >Discussion Pitches</h3>
+                            <hr>
+                            <p> This category contains pitches that could be of use during a discussion on any kind of topics.</p>
+                            <a href="" class="btn btn-primary btn-center -center">
+                                Open</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class=" card">
+                        <div class="well well-lg p-3" style="text-align: center;">
+                            <h3 >Friendship Pitches</h3>
+                            <hr>
+                            <p>A times you find yourself in a common ground with a stranger. This category has those first pitches one can use to send out a nice first impression.</p>
+                            <a href="" class="btn btn-primary btn-center -center">
+                                Open</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
 
 </div>
+
+{% endblock %}
     
 </html>
