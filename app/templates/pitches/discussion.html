@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,30 +57,10 @@
 
 <div class="container">
 
-    <h1>Discussion Pitches</h1>
+    <h2 class="card-title h1-responsive text-center"> Discussion Pitches</h2>
     <hr>
-
     <div class="row">
-        <div class="col-sm-12">
-            <div class="card ">
-                <div class="well well-lg p-3">
-                    <h3>Introducing your product.</h3>
-                    <p>Hi, my name is Ben and I from Commputer75 technology services. It’s great to meet you. I’m not sure if you’ve heard of us, but
-                    we have done extensive business with Trinity and F-Society. We have found great success with these clients and I am here
-                    looking to help other businesses. Our products have helped cut costs by 15 percent, since they are built to
-                    use less electricity and have longer lifespans. Unlike other products put out by our competitors, ours do not have to be
-                    replaced, which cuts down on unnecessary costs. We also have a staff of experts at the ready for any necessary repairs
-                    or tech support your office may need in the future. By integrating our products into your current setup, your company
-                    will run at a smoother rate. We are giving a talk on this tomorrow at 2:30 pm in the convention hall and I am inviting
-                    company leaders to the presentation. Here is the schedule and a list of the products we will be presenting. I look
-                    forward to seeing you there
-                    </p>
-                    <p><span id="owner">Posted by: </span>Ben</p>
-                    <a href="" class="btn btn-success btn-center -center" style="font-size:22px;">
-                        Comment</a>
-                </div>
-            </div>
-        </div>
+        {{macro.displayPitches(discussion_pitches)}}
     </div>
 
 </div>

@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,21 +57,10 @@
 
 <div class="container">
 
-    <h1>Friendship Pitches</h1>
+    <h2 class="card-title h1-responsive text-center"> Friendship Pitches</h2>
     <hr>
-
     <div class="row">
-        <div class="col-sm-12">
-            <div class="card ">
-                <div class="well well-lg p-3">
-                    <h3>Getting attention.</h3>
-                    <p>Hi, my name is Mark.
-                    <p><span id="owner">Posted by: </span>Mark</p>
-                    <a href="" class="btn btn-success btn-center -center" style="font-size:22px;">
-                        Comment</a>
-                </div>
-            </div>
-        </div>
+        {{macro.displayPitches(friendship_pitches)}}
     </div>
 
 </div>

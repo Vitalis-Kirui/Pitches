@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,26 +57,10 @@
 
 <div class="container">
 
-    <h1>Promotion Pitches</h1>
+    <h2 class="card-title h1-responsive text-center"> Promotion Pitches</h2>
     <hr>
-
     <div class="row">
-        <div class="col-sm-12">
-            <div class="card ">
-                <div class="well well-lg p-3">
-                    <h3>Getting attention.</h3>
-                    <p>Hi, my name is Mark. After graduating with my Bachelor’s degree in Business Administration, I’ve spent the last three
-                    years building professional experience as an Executive Assistant. I’ve successfully managed end-to-end event
-                    coordination and have generated a strong professional network for my colleagues. I was excited to learn about this
-                    opportunity in the sports management space — I’ve always been passionate about the way sports brings cultures together
-                    and would love the opportunity to bring my project management and leadership abilities to this position.
-                    </p>
-                    <p><span id="owner">Posted by: </span>Mark</p>
-                    <a href="" class="btn btn-success btn-center -center" style="font-size:22px;">
-                        Comment</a>
-                </div>
-            </div>
-        </div>
+        {{macro.displayPitches(promotion_pitches)}}
     </div>
 
 </div>
