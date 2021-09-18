@@ -1,7 +1,80 @@
 {% extends 'base.html'%}
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Pitches</title>
+
+    <!-- Styles block -->
+    {% block styles%}
+    {{ super() }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
+<!-- Content block -->
 {% block content %}
 
-<h1>{{friendship_title}}</h1>
+<style>
+    h3 {
+        color: rgb(0, 0, 0);
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 28px;
+    }
+
+    h1 {
+        font-family: 'Josefin Sans', sans-serif;
+        text-align: center;
+        color: brown;
+    }
+
+    p {
+        font-family: 'Charm', cursive;
+        font-size: 24px;
+    }
+
+    a {
+        font-family: 'Charm', cursive;
+    }
+
+    #owner {
+        font-weight: 600;
+        color: brown;
+    }
+</style>
+
+<div class="container">
+
+    <h1>Friendship Pitches</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card ">
+                <div class="well well-lg p-3">
+                    <h3>Getting attention.</h3>
+                    <p>Hi, my name is Mark.
+                    <p><span id="owner">Posted by: </span>Mark</p>
+                    <a href="" class="btn btn-success btn-center -center" style="font-size:22px;">
+                        Comment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}
+
+</html>
