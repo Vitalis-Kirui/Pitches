@@ -1,0 +1,6 @@
+Hello {{user.username}}
+Welcome to First Impression Pitches
+We have just seen you have signed up for our application and want to welcome you to the family.
+Please enjoy and learn from the available pitches.
+We will also appreciate you sharing what you got, We are sure it will be of help to someone else too.
+Thank you for signing up with us.
