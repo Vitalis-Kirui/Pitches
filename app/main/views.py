@@ -1,9 +1,7 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for, abort
 from . import main
 from ..models import Pitch
 from .forms import PitchesForm
-
-# Pitch = pitch.Pitch
 
 #index view function
 @main.route('/')
@@ -46,7 +44,7 @@ def friendship():
     friendship_title = "This page will display friendship pitches"
     return render_template('pitches/friendship.html', friendship_title = friendship_title)
 
-@main.route('/pitches/pitch/new', methods = ['GET','POST'])
+@main.route('/pitch/new', methods = ['GET','POST'])
 def new_pitch():
     form = PitchesForm()
 
@@ -58,4 +56,5 @@ def new_pitch():
         new_pitch = Pitch(pitch_title,pitch_category,pitch_itself)
         new_pitch.save_pitch()
 
-    return render_template('new_pitch.html', pitch_form = form)
+    page_title = "Create new pitch."
+    return render_template('new_pitch.html', pitch_form = form,page_title= page_title)
