@@ -12,10 +12,3 @@ class Pitch:
     @classmethod
     def clear_pitches(cls):
         Pitches.all_pitches.clear()
-
-    @classmethod
-    def display_pitch(cls):
-        for pitch in cls.all_pitches:
-            title = pitch.pitch_title
-            category = pitch.pitch_category
-            single_pitch = pitch.pitch_itself
