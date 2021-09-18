@@ -1,5 +1,8 @@
 from flask import render_template
 from app import app
+from .models import pitch
+from .forms import PitchesForm
+
 
 #index view function
 @app.route('/')
@@ -41,3 +44,16 @@ def friendship():
     """
     friendship_title = "This page will display friendship pitches"
     return render_template('pitches/friendship.html', friendship_title = friendship_title)
+
+@app.route('/pitches/pitch/new')
+def new_pitch():
+    form = PitchesForm()
+
+    if form.validate_on_submit():
+        pitch_title = form.title.data
+        pitch_itself = form.pitch.data
+
+        new_pitch = Pitch(pitch_title,pitch_sentence)
+        new_pitch.save_pitch()
+
+    return render_template('new_pitch.html', pitch_form = form)
