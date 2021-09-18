@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for, abort
 from . import main
 from ..models import Pitch
 from .forms import PitchesForm
+from flask_login import login_required
 
 #index view function
 @main.route('/')
@@ -45,6 +46,7 @@ def friendship():
     return render_template('pitches/friendship.html', friendship_title = friendship_title)
 
 @main.route('/pitch/new', methods = ['GET','POST'])
+@login_required
 def new_pitch():
     form = PitchesForm()
 
