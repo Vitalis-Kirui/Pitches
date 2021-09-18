@@ -14,37 +14,45 @@ def index():
     main_title = 'First Impression Pitches'
     return render_template('index.html', main_title=main_title)
 
-@main.route('/category/interview')
+@main.route('/category/interview', methods=['GET'])
 def interview():
     """
     Function for displaying interview pitches page.
     """
-    interview_title = "This page will display interview pitches"
-    return render_template('pitches/interview.html', interview_title = interview_title)
+    pitches = Pitch.get_pitches('interview')
 
-@main.route('/category/discussion')
+    interview_title = "This page will display interview pitches"
+    return render_template('pitches/interview.html', interview_title = interview_title, interview_pitches = pitches)
+
+@main.route('/category/discussion', methods=['GET'])
 def discussion():
     """
     Function for displaying discussion pitches page.
     """
-    discussion_title = "This page will display discussion pitches"
-    return render_template('pitches/discussion.html', discussion_title = discussion_title)
+    pitches = Pitch.get_pitches('discussion')
 
-@main.route('/category/promotion')
+    discussion_title = "This page will display discussion pitches"
+    return render_template('pitches/discussion.html', discussion_title = discussion_title, discussion_pitches = pitches)
+
+@main.route('/category/promotion', methods=['GET'])
 def promotion():
     """
     Function for displaying promotion pitches page.
     """
-    promotion_title = "This page will display promotion pitches"
-    return render_template('pitches/promotion.html', promotion_title =promotion_title)
+    pitches = Pitch.get_pitches('promotion')
 
-@main.route('/category/friendship')
+    promotion_title = "This page will display promotion pitches"
+    return render_template('pitches/promotion.html', promotion_title =promotion_title, promotion_pitches = pitches)
+
+@main.route('/category/friendship', methods=['GET'])
 def friendship():
     """
     Function for displaying friendship pitches page.
     """
+    pitches = Pitch.get_pitches('friendship')
+
     friendship_title = "This page will display friendship pitches"
-    return render_template('pitches/friendship.html', friendship_title = friendship_title)
+    return render_template('pitches/friendship.html', friendship_title = friendship_title, friendship_pitches = pitches)
 
 @main.route('/pitch/new', methods = ['GET','POST'])
 @login_required
