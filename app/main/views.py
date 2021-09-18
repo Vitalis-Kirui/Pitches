@@ -56,8 +56,7 @@ def new_pitch():
         pitch_category = form.category.data
         pitch_itself = form.pitch.data
 
-        new_pitch = Pitch(pitch_title,pitch_category,pitch_itself)
-        new_pitch.save_pitch()
+        new_pitch = Pitch()
 
     page_title = "Create new pitch."
     return render_template('new_pitch.html', pitch_form = form,page_title= page_title)
