@@ -1,6 +1,6 @@
-from flask import render_template, request, redirect, url_for, abort
+from flask import render_template,request,redirect,url_for,abort
 from . import main
-from ..models import Pitch
+from ..models import Pitch,User
 from .forms import PitchesForm
 from flask_login import login_required
 
@@ -60,3 +60,12 @@ def new_pitch():
 
     page_title = "Create new pitch."
     return render_template('new_pitch.html', pitch_form = form,page_title= page_title)
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
