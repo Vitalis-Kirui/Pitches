@@ -52,11 +52,15 @@ def new_pitch():
     form = PitchesForm()
 
     if form.validate_on_submit():
-        pitch_title = form.title.data
-        pitch_category = form.category.data
-        pitch_itself = form.pitch.data
+        title = form.pitch_title.data
+        category = form.pitch_category.data
+        user_pitch = form.pitch_itself.data
 
-        new_pitch = Pitch()
+        new_pitch = Pitch(pitch_title=title, pitch_category=category, pitch_itself=user_pitch)
+
+        #save pitch
+        new_pitch.save_pitch()
+        return redirect(url_for('.index'))
 
     page_title = "Create new pitch."
     return render_template('new_pitch.html', pitch_form = form,page_title= page_title)
