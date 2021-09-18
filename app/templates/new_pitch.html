@@ -28,23 +28,55 @@
 {% block content %}
 
 <style>
+    h3{
+        font-weight: 600;
+        color: brown;
+    }
+
     p {
         font-family: 'Charm', cursive;
         font-size: 24px;
     }
 
+    .navbar ul, a{
+        font-family: 'Charm', cursive;
+    }
+
+    .category{
+        font-family: 'Charm', cursive;
+        font-size: 24px;
+        color: brown;
+    }
+
     label{
         font-family: 'Charm', cursive;
         font-size: 24px;
+        color: brown;
     }
+
+    button{
+        font-size: 28px;
+    }
+    .createdPitches{
+        padding-left: 20px;
+    }
+
 </style>
 
 <div class="container">
 
-    <div class="col-md-12">
+    <div class="col-md-9">
     
         <div class="col-md-9">
             {{ wtf.quick_form(pitch_form) }}
+        </div>
+
+        <div class="createdPitches col-md-9">
+
+            <!-- <h3>{{pitch_title}}</h3>
+            <p>{{pitch_itself}}</p>
+            <p><strong>Category: <span class = "category">{{pitch_category}}</span></strong></p> -->
+
         </div>
     
     </div>

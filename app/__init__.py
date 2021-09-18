@@ -1,19 +1,23 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
-from .config import DevConfig
+from config import config_options
 
 # Initializing application
-app = Flask(__name__, instance_relative_config=True)
-# default value during development
-app.secret_key = 'password'
-# overridden if this file exists in the instance folder
-app.config.from_pyfile('config.py', silent=True)
 
-# Setting up configuration
-app.config.from_object(DevConfig)
+def create_app(config_name):
 
-# Initializing Flask Extensions
-bootstrap = Bootstrap(app)
+    app = Flask(__name__)
 
-from app import views
-from app import  errors
+    # Creating the app configurations
+    app.config.from_object(config_options[config_name])
+
+    app.secret_key = 'password'
+
+    # Initializing Flask Extensions
+    bootstrap = Bootstrap(app)
+
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    return app
