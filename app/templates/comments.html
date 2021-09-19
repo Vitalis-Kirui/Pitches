@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% import 'macros.html' as macro %}
+
+{%block content%}
+<h3 class="text-center text-uppercase" style="color:Teal"> comments</h3>
+
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            {{macro.displayPitches(pitche)}}
+            <h3 class="pt-3"><b>{{pitch.pitch_title}}</b></h3>
+            <hr>
+            <p>{{pitch.pitch_itself}}</p>
+            <p>{{pitch.pitch_comment}}</p>
+
+        </div>
+        <div class="col-md-6">
+            {{ wtf.quick_form(commentform) }}
+            <h3>Display comments</h3>
+            {{macro.displayComments(comments)}}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

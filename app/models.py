@@ -58,6 +58,7 @@ class Pitch(db.Model):
     pitch_title = db.Column(db.String)
     pitch_category = db.Column(db.String)
     pitch_itself = db.Column(db.String)
+    posted = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     comment = db.relationship('Comments', backref='pitch', lazy="dynamic")
 
@@ -80,9 +81,7 @@ class Pitch(db.Model):
         Pitch.all_pitches.clear()
 
 class Comments(db.Model):
-    """
-    User comment model for each pitch 
-    """
+
     __tablename__ = 'comments'
 
     # add columns

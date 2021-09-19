@@ -6,8 +6,24 @@
             <h3 style="font-weight: 700; color: goldenrod">{{pitch.pitch_title}}</h3>
             <hr>
             <p>{{pitch.pitch_itself|truncate}}</p>
+
+            <div class=col-md-6>
+                <a href="{{url_for('main.post_comment',id=pitch.id)}}" class="btn btn-default btn-center -center">
+                    Comment</a>
+            </div>
+
         </div>
     </div>
 </div>
+
 {% endfor %}
+{%endmacro%}
+
+{%macro displayComments(comments_list)%}
+{%for comment in comments_list%}
+<div class="col-md-12">
+    <p>{{comment.comment_itself}}</p>
+    <h5>By : {{comment.user.username}}</h5>
+</div>
+{%endfor%}
 {%endmacro%}
