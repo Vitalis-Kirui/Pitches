@@ -15,6 +15,9 @@ class CommentTest(unittest.TestCase):
 
 
     def tearDown(self):
+        """
+        Tear down function to clear saved instances
+        """
         Comments.query.delete()
 
 
@@ -23,4 +26,4 @@ class CommentTest(unittest.TestCase):
 
 
     def test_check_instance_variables(self):
-        self.assertEquals(self.comment.opinion,'I am testing comment class')
+        self.assertEquals(self.comment.comment_itself,'I am testing comment class')
