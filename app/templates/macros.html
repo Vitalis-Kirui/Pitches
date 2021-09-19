@@ -24,8 +24,10 @@
 
 <div class="col-md-12">
     <p>{{comment.comment_itself}}</p>
-    <h5><span style="color:brown;">By :
-    </span> {{comment.user.username}}</h5>
+    <h5><span style="color:brown; font-size:24px">By :
+    </span> <span style=" font-size:24px">{{comment.user.username}}
+    </span></h5>
+    <hr>
 </div>
 {%endfor%}
 {%endmacro%}

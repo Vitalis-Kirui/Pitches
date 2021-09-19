@@ -2,9 +2,71 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 {% import 'macros.html' as macro %}
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Pitches</title>
+
+    <!-- Styles block -->
+    {% block styles%}
+    {{ super() }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
 {%block content%}
 
+<style>
+    h3 {
+        color: rgb(0, 0, 0);
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 28px;
+    }
 
+    h1 {
+        font-family: 'Josefin Sans', sans-serif;
+        text-align: center;
+        color: brown;
+    }
+
+        h2{
+        font-family: 'Josefin Sans', sans-serif;
+        color: brown;
+        text-align: center;
+        font-size:35px;
+    }
+
+    h3 {
+        font-family: 'Josefin Sans', sans-serif;
+        color: brown;
+        font-size:35px;
+    }
+
+    p {
+        font-family: 'Charm', cursive;
+        font-size: 24px;
+    }
+
+    label{
+        font-family: 'Charm', cursive;
+        font-size: 22px;
+    }
+
+    a {
+        font-family: 'Charm', cursive;
+    }
+</style>
 
 <h3 class="text-center text-uppercase" style="color:Teal"> comments</h3>
 
@@ -21,10 +83,14 @@
         </div>
         <div class="col-md-6">
             {{ wtf.quick_form(commentform) }}
-            <h3>Display comments</h3>
+        </div>
+
+        <div class="col-md-12">
+            <h3 style="text-align:center">Comments</h3>
+            <hr>
             {{macro.displayComments(comments)}}
         </div>
-        <div class="col-md-2"></div>
+
     </div>
 </div>
 
