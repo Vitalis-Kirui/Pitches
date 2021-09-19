@@ -111,3 +111,42 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/comment/<int:id>', methods=['POST', 'GET'])
+@login_required
+def post_comment(id):
+    pitche = Pitch.getPitchId(id)
+    comments = Comments.get_comments(id)
+
+    # if request.args.get("like"):
+    #     pitch = Pitch.query.filter_by(user_id=current_user.id)
+    #     pitch.likes += 1
+    #     print(pitch.likes)
+
+    #     db.session.add(pitch.likes)
+    #     db.session.commit()
+    #     return str(pitch.likes)
+
+    # elif request.args.get("dislike"):
+    #     pitche.dislikes += 1
+
+    #     db.session.add()
+    #     db.session.commit()
+
+    #     return redirect(".comment")
+
+    form = CommentForm()
+    if form.validate_on_submit():
+        comment = form.user_comment.data
+
+        new_comment = Comments(comment_itself=comment,
+                               user_id=current_user.id,
+                               pitches_id=pitche.id)
+
+        new_comment.save_comment()
+
+        return redirect(url_for('main.post_comment', id=pitche.id))
+    return render_template('comment.html',
+                           commentform=form,
+                           comments=comments,
+                           pitch=pitche)
