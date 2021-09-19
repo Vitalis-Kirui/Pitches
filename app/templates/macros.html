@@ -1,17 +1,17 @@
 {% macro displayPitches(pitches_list)%}
 {%for pitch in pitches_list%}
-<div class=" col-lg-4 movie-card">
+<div class=" col-lg-6 movie-card">
     <div class="card col-sm mt-2">
-        <div class="well well-lg p-3" style="text-align: left;">
-            <h3 style="font-weight: 700; color: goldenrod">{{pitch.pitch_title}}</h3>
+        <div class="well  p-3" style="text-align: left;">
+            <h3 style="font-weight: 700; color: rgb(35, 32, 218)">{{pitch.pitch_title}}</h3>
             <hr>
             <p>{{pitch.pitch_itself|truncate}}</p>
+            <p style="font-weight: 900; "><span style="color:brown;">Posted by :
+                </span> {{pitch.user.username}}
+            </p>
 
-            <div class=col-md-6>
-                <a href="{{url_for('main.post_comment',id=pitch.id)}}" class="btn btn-default btn-center -center">
+                <a href="{{url_for('main.post_comment',id=pitch.id)}}" class="btn btn-success btn-center -center" style="font-size: 22px;">
                     Comment</a>
-            </div>
-
         </div>
     </div>
 </div>
@@ -21,9 +21,11 @@
 
 {%macro displayComments(comments_list)%}
 {%for comment in comments_list%}
+
 <div class="col-md-12">
     <p>{{comment.comment_itself}}</p>
-    <h5>By : {{comment.user.username}}</h5>
+    <h5><span style="color:brown;">By :
+    </span> {{comment.user.username}}</h5>
 </div>
 {%endfor%}
 {%endmacro%}

@@ -1,6 +1,6 @@
 from flask import render_template,redirect,url_for, flash,request
 from ..models import User
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required,current_user
 from .forms import LoginForm,RegistrationForm
 from .. import db
 from . import auth
@@ -34,7 +34,10 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message("Welcome to watchlist","email/welcome_user",user.email,user=user)
+        mail_message("Welcome to First Impression Pitches",
+                     "email/welcome_user",
+                     user.email,
+                     user=user)
 
         return redirect(url_for('auth.login'))
         title = "New Account"

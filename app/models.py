@@ -1,32 +1,19 @@
 from . import db
-from werkzeug.security import generate_password_hash,check_password_hash
-from flask_login import UserMixin
-from . import login_manager
 from datetime import datetime
+from werkzeug.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin,current_user
+from . import login_manager
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class Pitch:
-    all_pitches = []
-
-    def __init__(self,pitch_title,pitch_category,pitch_itself):
-        self.pitch_title = pitch_title
-        self.pitch_category =pitch_category
-        self.pitch_itself =pitch_itself
-
-    def save_pitch(self):
-        Pitch.all_pitches.append(self)        
-
-    @classmethod
-    def clear_pitches(cls):
-        Pitches.all_pitches.clear()
-
 class User(UserMixin,db.Model):
+
     __tablename__ = 'users'
+
     id = db.Column(db.Integer,primary_key = True)
-    username = db.Column(db.String(255))
+    username = db.Column(db.String(255), index=True)
     email = db.Column(db.String(255),unique = True,index = True)
     pitches = db.relationship("Pitch", backref="user", lazy="dynamic")
     comment = db.relationship("Comments", backref="user", lazy="dynamic")
@@ -84,7 +71,6 @@ class Comments(db.Model):
 
     __tablename__ = 'comments'
 
-    # add columns
     id = db.Column(db.Integer, primary_key=True)
     comment_itself = db.Column(db.String(255))
     time_posted = db.Column(db.DateTime, default=datetime.utcnow)

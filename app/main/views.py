@@ -1,8 +1,9 @@
 from flask import render_template,request,redirect,url_for,abort
+from flask_login import login_required,current_user
 from . import main
+from wtforms import form
 from ..models import Pitch,User,Comments
 from .forms import PitchesForm,UpdateProfile,CommentForm
-from flask_login import login_required
 from .. import db,photos
 
 #index view function
@@ -11,8 +12,11 @@ def index():
     """
     Index view function that returns the index html page. Which is the homepage.
     """
+    all_pitches = Pitch.query.order_by('id').all()
+    print(all_pitches)
+
     main_title = 'First Impression Pitches'
-    return render_template('index.html', main_title=main_title)
+    return render_template('index.html', main_title=main_title,all_pitches=all_pitches)
 
 @main.route('/category/interview', methods=['GET'])
 def interview():
@@ -64,7 +68,7 @@ def new_pitch():
         category = form.pitch_category.data
         user_pitch = form.pitch_itself.data
 
-        new_pitch = Pitch(pitch_title=title, pitch_category=category, pitch_itself=user_pitch)
+        new_pitch = Pitch(pitch_title=title, pitch_category=category, pitch_itself=user_pitch, user=current_user)
 
         #save pitch
         new_pitch.save_pitch()
@@ -118,28 +122,11 @@ def post_comment(id):
     pitche = Pitch.getPitchId(id)
     comments = Comments.get_comments(id)
 
-    # if request.args.get("like"):
-    #     pitch = Pitch.query.filter_by(user_id=current_user.id)
-    #     pitch.likes += 1
-    #     print(pitch.likes)
-
-    #     db.session.add(pitch.likes)
-    #     db.session.commit()
-    #     return str(pitch.likes)
-
-    # elif request.args.get("dislike"):
-    #     pitche.dislikes += 1
-
-    #     db.session.add()
-    #     db.session.commit()
-
-    #     return redirect(".comment")
-
     form = CommentForm()
     if form.validate_on_submit():
         comment = form.user_comment.data
 
-        new_comment = Comments(comment_itself=comment,
+        new_comment = Comments(comment_itself=comment,user_id=current_user.id,
                                pitches_id=pitche.id)
 
         new_comment.save_comment()
