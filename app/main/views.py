@@ -25,7 +25,8 @@ def interview():
     """
     pitches = Pitch.get_pitches('interview')
 
-    interview_title = "This page will display interview pitches"
+    interview_title = "Interview Pitches"
+
     return render_template('pitches/interview.html', interview_title = interview_title, interview_pitches = pitches)
 
 @main.route('/category/discussion', methods=['GET'])
