@@ -4,7 +4,7 @@ class Config:
     General configuration parent class
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Computer7575@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:vitalis@localhost/pitches'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations
